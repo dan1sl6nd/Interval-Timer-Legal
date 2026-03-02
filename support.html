@@ -6,51 +6,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interval Timer - Support</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f4f5f7;
+            background-color: #f8fafc;
         }
 
         .bento-card {
             background-color: #ffffff;
             border-radius: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            pointer-events: none;
         }
     </style>
 </head>
 
-<body class="text-gray-800 antialiased min-h-screen flex flex-col justify-center items-center p-6">
-    <div class="max-w-2xl w-full">
-        <!-- Header -->
-        <div class="text-center mb-10">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900 mb-2">Support & Help</h1>
-            <p class="text-lg text-gray-500">We're here to help with your Interval Timer experience.</p>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col items-center relative overflow-hidden py-12 px-6">
+    <div class="hero-blob"></div>
+
+    <div class="max-w-3xl w-full z-10">
+
+        <!-- Navigation -->
+        <div class="mb-12">
+            <a href="index.html"
+                class="inline-flex items-center text-slate-500 hover:text-blue-600 transition-colors font-medium text-sm bg-white py-2 px-4 rounded-full shadow-sm border border-slate-100">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                </svg>
+                Back to Legal
+            </a>
         </div>
 
-        <div class="bento-card p-10 text-center flex flex-col items-center justify-center">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Need Assistance?</h2>
-            <p class="text-gray-600 mb-8 max-w-md">If you have any questions, encountered a bug, or just want to suggest
-                a feature, please reach out to us directly via email.</p>
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <div
+                class="inline-flex items-center justify-center w-24 h-24 rounded-[2rem] bg-gradient-to-tr from-blue-500 to-indigo-600 text-white shadow-2xl shadow-blue-500/30 mb-8 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z">
+                    </path>
+                </svg>
+            </div>
+            <h1 class="text-5xl font-extrabold tracking-tight text-slate-900 mb-4">How can we <span
+                    class="gradient-text">help?</span></h1>
+            <p class="text-xl text-slate-500 max-w-xl mx-auto leading-relaxed">Whether you have a question about the
+                app, found a bug, or just want to request a new feature, our team is ready to listen.</p>
+        </div>
+
+        <!-- Main Action Card -->
+        <div
+            class="bento-card p-10 md:p-14 text-center flex flex-col items-center justify-center relative overflow-hidden mb-12 border border-slate-100">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-purple-50 rounded-tr-full -z-10 opacity-50"></div>
+
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Contact Support</h2>
+            <p class="text-slate-600 mb-10 max-w-md mx-auto text-lg">We typically respond to inquiries within 24-48
+                hours. Please include any relevant screenshots if reporting an issue!</p>
 
             <a href="mailto:dan1sl6nd@gmail.com"
-                class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-xl transition-colors shadow-lg">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                class="group relative inline-flex items-center justify-center px-8 py-5 text-lg font-semibold text-white bg-slate-900 hover:bg-black rounded-2xl transition-all shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.2)] overflow-hidden w-full sm:w-auto">
+                <span
+                    class="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-30 bg-gradient-to-b from-transparent via-transparent to-black"></span>
+                <svg class="w-6 h-6 mr-3 transform group-hover:-translate-y-1 transition-transform" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                     </path>
                 </svg>
-                Email Support (dan1sl6nd@gmail.com)
+                <span class="relative">Email Support Direct</span>
             </a>
+            <p class="mt-4 text-sm font-medium text-slate-400">dan1sl6nd@gmail.com</p>
         </div>
 
-        <div class="mt-8 text-center">
-            <a href="index.html" class="text-blue-500 hover:underline text-sm font-medium">&larr; Back to Home</a>
+        <!-- FAQ Section -->
+        <div class="mt-16 mb-12">
+            <h3 class="text-2xl font-bold text-slate-900 mb-8 pl-4 border-l-4 border-blue-500">Frequently Asked
+                Questions</h3>
+
+            <div class="space-y-4">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-2">How do I restore my purchases?</h4>
+                    <p class="text-slate-600">If you have Premium and reinstalled the app, navigate to Settings >
+                        Restore Purchases to regain access to your features.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                    <h4 class="text-lg font-semibold text-slate-900 mb-2">Why aren't my notifications working?</h4>
+                    <p class="text-slate-600">Ensure that you have granted Interval Timer permission to send
+                        notifications in your iOS Settings app under Notifications > Interval Timer.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="mt-12 text-center text-sm text-gray-400">
-            &copy; 2026 Interval Timer App. All rights reserved.
+        <!-- Footer -->
+        <div class="mt-20 pt-8 border-t border-slate-200 text-center flex flex-col items-center">
+            <div class="flex space-x-6 mb-4">
+                <a href="privacy.html"
+                    class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Privacy Policy</a>
+                <a href="terms.html"
+                    class="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Terms of
+                    Service</a>
+            </div>
+            <p class="text-sm text-slate-400 font-medium">
+                &copy; 2026 Interval Timer App. All rights reserved.
+            </p>
         </div>
     </div>
 </body>
